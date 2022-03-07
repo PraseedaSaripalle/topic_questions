@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<style>
+table, th, td {
+  border:1px solid black;
+}
+</style>
+<body>
+
+<h2>List of all Topics </h2>
+
+<table style="width: 100%;">
+    
+    <h3>{{ans}}</h3>
+
+    <table>
+        {% if topic %}
+        <tr>
+            <th>Topic Id</th>
+            <th>Topic name</th>
+   
+        </tr>
+    <tr>
+        {% for t in topic %}
+        <td>{{t.id}}</td>
+        <td><a href="{% url 'tsubques' topic_name=t.topic_name %}"> {{t.topic_name}} </a></td>
+    </tr>
+        {% endfor %}
+   </table>
+{% else %}
+ <h1>No Data</h1>
+{% endif %}
+
+</body>
+</html>
